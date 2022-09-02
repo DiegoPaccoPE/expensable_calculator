@@ -15,22 +15,27 @@ const CalculatorContainer = styled.div`
 function doCalculation(prevNumber, operant, currentNumber) {
   const numberOne = Number(prevNumber);
   const numberTwo = Number(currentNumber);
-  const areInteger = Number.isInteger(numberOne) && Number.isInteger(numberTwo);
+  let result;
   switch (operant) {
     case "+":
       return String(numberOne + numberTwo);
     case "-":
       return String(numberOne - numberTwo);
     case "×":
-      if (areInteger) {
-        return String(numberOne * numberTwo);
+      result = numberOne * numberTwo;
+      if (Number.isInteger(result)) {
+        return String(result);
       } else {
-        return String((numberOne * numberTwo).toFixed(2));
+        return String(result.toFixed(2));
       }
 
     case "÷":
-      const result = numberOne / numberTwo;
-      return String(result);
+      result = numberOne / numberTwo;
+      if (Number.isInteger(result)) {
+        return String(result);
+      } else {
+        return String(result.toFixed(2));
+      }
     default:
       break;
   }
