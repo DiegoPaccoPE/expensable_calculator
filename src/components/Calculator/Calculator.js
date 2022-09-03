@@ -184,6 +184,7 @@ function Calculator({ icon, color, name }) {
     return function cleanup() {
       document.removeEventListener("keydown", handleKeyDown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prevNumber, operant, currentNumber]);
   return (
     <CalculatorContainer>
