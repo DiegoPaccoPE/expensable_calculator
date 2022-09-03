@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { colors } from "../../../../global/colors";
 import { content, typography } from "../../../../global/typography";
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled.div`
   border: none;
   font-family: ${typography.primary};
   color: ${colors.gray[600]};

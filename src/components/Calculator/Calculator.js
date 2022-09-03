@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CalculatorButtons from "./CalculatorButtons/CalculatorButtons";
 import CalculatorDisplay from "./CalculatorDisplay/CalculatorDisplay";
 import CalculatorFooter from "./CalculatorFooter/CalculatorFooter";
@@ -145,6 +145,46 @@ function Calculator({ icon, color, name }) {
       return;
     }
   }
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      const eqKeyboard = {
+        "*": "×",
+        "/": "÷",
+        Backspace: "del",
+        Enter: "eq",
+      };
+      const aceptedKeyboards = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "0",
+        "Backspace",
+        "Enter",
+        "*",
+        "/",
+        "+",
+        "-",
+        ".",
+      ];
+      if (!aceptedKeyboards.includes(event.key)) return;
+      const value = eqKeyboard[event.key] ?? event.key;
+      handleKeyboardPressed(value);
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Don't forget to clean up
+    return function cleanup() {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [prevNumber, operant, currentNumber]);
   return (
     <CalculatorContainer>
       <CalculatorHeader icon={icon} color={color} name={name} />
