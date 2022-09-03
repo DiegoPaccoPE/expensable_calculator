@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../global/colors";
-import { content } from "../../../global/typography";
+import { GeneralConfiguration } from "../../../global/reset";
+import { content, typography } from "../../../global/typography";
 import { dolarIcon } from "../../../icons/calculatorIcons";
 
 const StyledDisplay = styled.div`
+  ${GeneralConfiguration()}
+  font-family: ${typography.primary};
   background-color: white;
   border-top: 1px solid ${colors.gray[200]};
   border-left: 1px solid ${colors.gray[200]};

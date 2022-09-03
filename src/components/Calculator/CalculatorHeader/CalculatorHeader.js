@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
+import { GeneralConfiguration } from "../../../global/reset";
 import { content, textWeight, typography } from "../../../global/typography";
 
 const StyledHeader = styled.div`
+  ${GeneralConfiguration()}
+  width: 256px;
   height: 50px;
   padding: 5px 12px;
   background-color: ${(props) => props.color};
@@ -21,6 +24,7 @@ const StyledHeader = styled.div`
 `;
 
 const StyledText = styled.p`
+  ${GeneralConfiguration}
   ${(props) => content(props.type)}
   ${(props) => textWeight(props.textWeight)}
 `;

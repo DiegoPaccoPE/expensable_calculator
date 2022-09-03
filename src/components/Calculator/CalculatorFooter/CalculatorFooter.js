@@ -1,8 +1,11 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../global/colors";
+import { GeneralConfiguration } from "../../../global/reset";
 import { content, typography } from "../../../global/typography";
 
 const StyledFooterCalculator = styled.div`
+  ${GeneralConfiguration}
+  width: 256px;
   font-family: ${typography.primary};
   padding: 5px 20px;
   border-radius: 0px 0px 0.5rem 0.5rem;
